@@ -1,0 +1,68 @@
+[
+  {
+    "id": "sw-001",
+    "title": "Urban Legends Hoodie",
+    "slug": "urban-legends-hoodie",
+    "shortDescription": "Premium streetwear hoodie with contemporary urban design",
+    "description": "<p>Make a statement with our Urban Legends Hoodie. Crafted from premium cotton blend with a contemporary fit that defines modern street style. Features bold graphics, kangaroo pocket, and adjustable drawstring hood.</p><p>Perfect for layering or wearing as a statement piece. Represents the intersection of comfort, style, and urban culture.</p>",
+    "price": 79.99,
+    "currency": "USD",
+    "images": ["/images/street-wears/urban-legends-hoodie.jpg"],
+    "specs": {
+      "material": "80% Cotton, 20% Polyester fleece",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "fit": "Relaxed contemporary fit",
+      "features": ["Kangaroo pocket", "Drawstring hood", "Ribbed cuffs", "Screen-printed graphics"]
+    },
+    "categories": ["street-wears"],
+    "tags": ["hoodie", "urban", "streetwear", "casual", "premium"],
+    "meta": {
+      "createdAt": "2024-02-01T11:00:00Z",
+      "updatedAt": "2024-02-01T11:00:00Z"
+    }
+  },
+  {
+    "id": "sw-002",
+    "title": "Midnight Joggers",
+    "slug": "midnight-joggers",
+    "shortDescription": "Sleek joggers with tapered fit and premium comfort for all-day wear",
+    "description": "<p>Experience unparalleled comfort with our Midnight Joggers. Designed with a contemporary tapered silhouette that transitions seamlessly from gym to street. Features elastic waistband with drawstring, side pockets, and ankle zippers for a modern aesthetic.</p><p>Crafted from soft cotton blend that maintains its shape and comfort throughout the day.</p>",
+    "price": 64.99,
+    "currency": "USD",
+    "images": ["/images/street-wears/midnight-joggers.jpg"],
+    "specs": {
+      "material": "85% Cotton, 15% Polyester with soft fleece lining",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "fit": "Tapered contemporary fit",
+      "features": ["Elastic waistband", "Side pockets", "Ankle zippers", "Soft fleece lining"]
+    },
+    "categories": ["street-wears"],
+    "tags": ["joggers", "pants", "streetwear", "comfort", "tapered"],
+    "meta": {
+      "createdAt": "2024-02-05T16:20:00Z",
+      "updatedAt": "2024-02-05T16:20:00Z"
+    }
+  },
+  {
+    "id": "sw-003",
+    "title": "Metro Snapback Cap",
+    "slug": "metro-snapback-cap",
+    "shortDescription": "Classic snapback with embroidered logo and structured crown",
+    "description": "<p>Complete your urban look with the Metro Snapback Cap. Features classic 6-panel construction with structured crown and flat brim. Premium embroidered logo and contrast stitching add sophisticated details to this streetwear essential.</p><p>Adjustable snapback closure ensures perfect fit for all head sizes.</p>",
+    "price": 29.99,
+    "currency": "USD",
+    "images": ["/images/street-wears/metro-snapback.jpg"],
+    "specs": {
+      "material": "100% Cotton twill with polyester mesh panels",
+      "sizes": ["One Size (adjustable)"],
+      "construction": "6-panel structured crown",
+      "features": ["Embroidered logo", "Flat brim", "Snapback closure", "Contrast stitching"]
+    },
+    "categories": ["street-wears"],
+    "tags": ["cap", "hat", "snapback", "streetwear", "accessory"],
+    "meta": {
+      "createdAt": "2024-02-10T13:45:00Z",
+      "updatedAt": "2024-02-10T13:45:00Z"
+    }
+  }
+]

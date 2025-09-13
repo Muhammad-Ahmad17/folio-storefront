@@ -1,0 +1,68 @@
+[
+  {
+    "id": "fb-001",
+    "title": "Pro Elite Football Jersey",
+    "slug": "pro-elite-football-jersey",
+    "shortDescription": "Professional-grade football jersey with moisture-wicking technology",
+    "description": "<p>Experience peak performance with our Pro Elite Football Jersey. Engineered with advanced moisture-wicking fabric that keeps you dry and comfortable during intense matches. Features reinforced stitching, ergonomic fit, and official team colors.</p><p>Perfect for professional players and serious enthusiasts who demand the best in athletic wear.</p>",
+    "price": 89.99,
+    "currency": "USD",
+    "images": ["/images/football/pro-elite-jersey.jpg"],
+    "specs": {
+      "material": "100% Polyester with DRI-FIT technology",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "care": "Machine wash cold, tumble dry low",
+      "features": ["Moisture-wicking", "Anti-odor", "Quick-dry"]
+    },
+    "categories": ["football"],
+    "tags": ["jersey", "pro", "moisture-wicking", "performance"],
+    "meta": {
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-15T10:00:00Z"
+    }
+  },
+  {
+    "id": "fb-002",
+    "title": "Championship Football Cleats",
+    "slug": "championship-football-cleats",
+    "shortDescription": "High-performance cleats designed for maximum traction and speed",
+    "description": "<p>Dominate the field with our Championship Football Cleats. Featuring revolutionary traction technology with strategically placed studs for superior grip on all field conditions. Lightweight construction with responsive cushioning for explosive acceleration.</p><p>Trusted by professional athletes worldwide for championship-level performance.</p>",
+    "price": 159.99,
+    "currency": "USD",
+    "images": ["/images/football/championship-cleats.jpg"],
+    "specs": {
+      "material": "Synthetic leather upper with TPU outsole",
+      "sizes": ["7", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"],
+      "weight": "290g per shoe (size 9)",
+      "features": ["Multi-directional traction", "Lightweight", "Responsive cushioning"]
+    },
+    "categories": ["football"],
+    "tags": ["cleats", "shoes", "traction", "performance", "professional"],
+    "meta": {
+      "createdAt": "2024-01-20T14:30:00Z",
+      "updatedAt": "2024-01-20T14:30:00Z"
+    }
+  },
+  {
+    "id": "fb-003",
+    "title": "Training Shorts Pro",
+    "slug": "training-shorts-pro",
+    "shortDescription": "Lightweight training shorts with compression liner for optimal performance",
+    "description": "<p>Elevate your training with our Training Shorts Pro. Built with ultra-lightweight fabric and integrated compression liner for muscle support and enhanced blood flow. Features secure pockets and reflective details for safety during early morning or evening sessions.</p>",
+    "price": 49.99,
+    "currency": "USD",
+    "images": ["/images/football/training-shorts.jpg"],
+    "specs": {
+      "material": "90% Polyester, 10% Spandex with compression liner",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "inseam": "7 inches",
+      "features": ["Compression liner", "Secure pockets", "Reflective details", "Quick-dry"]
+    },
+    "categories": ["football"],
+    "tags": ["shorts", "training", "compression", "lightweight"],
+    "meta": {
+      "createdAt": "2024-01-25T09:15:00Z",
+      "updatedAt": "2024-01-25T09:15:00Z"
+    }
+  }
+]
