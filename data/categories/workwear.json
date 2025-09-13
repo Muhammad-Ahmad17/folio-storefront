@@ -1,0 +1,68 @@
+[
+  {
+    "id": "work-001",
+    "title": "High-Visibility Safety Vest",
+    "slug": "high-visibility-safety-vest",
+    "shortDescription": "ANSI compliant safety vests for construction",
+    "description": "High-visibility safety vests meeting ANSI standards. Perfect for construction, roadwork, and industrial environments. Bulk pricing available.",
+    "price": 18.99,
+    "currency": "USD",
+    "images": ["/images/workwear/safety-vest.jpg"],
+    "specs": {
+      "material": "Polyester mesh",
+      "sizes": ["S", "M", "L", "XL", "XXL", "XXXL"],
+      "colors": ["Safety Orange", "Safety Yellow", "Lime Green"],
+      "features": ["ANSI Class 2", "Reflective tape", "Breathable mesh"]
+    },
+    "categories": ["workwear"],
+    "tags": ["safety", "construction", "high-visibility", "ANSI"],
+    "meta": {
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    }
+  },
+  {
+    "id": "work-002",
+    "title": "Work Coveralls",
+    "slug": "work-coveralls",
+    "shortDescription": "Durable coveralls for industrial work",
+    "description": "Heavy-duty coveralls designed for industrial and maintenance work. Multiple pocket configurations and custom sizing available.",
+    "price": 45.99,
+    "currency": "USD",
+    "images": ["/images/workwear/coveralls.jpg"],
+    "specs": {
+      "material": "Cotton/Polyester blend",
+      "sizes": ["S", "M", "L", "XL", "XXL", "XXXL"],
+      "colors": ["Navy", "Grey", "Khaki"],
+      "features": ["Reinforced knees", "Tool loops", "Zip front"]
+    },
+    "categories": ["workwear"],
+    "tags": ["coveralls", "industrial", "maintenance", "durable"],
+    "meta": {
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    }
+  },
+  {
+    "id": "work-003",
+    "title": "Hard Hat Compatible Cap",
+    "slug": "hard-hat-compatible-cap",
+    "shortDescription": "Protective caps that fit under hard hats",
+    "description": "Comfortable caps designed to be worn under hard hats. Moisture-wicking fabric keeps workers cool and dry.",
+    "price": 12.99,
+    "currency": "USD",
+    "images": ["/images/workwear/hard-hat-cap.jpg"],
+    "specs": {
+      "material": "Moisture-wicking polyester",
+      "sizes": ["One Size"],
+      "colors": ["Navy", "Black", "Grey", "White"],
+      "features": ["Moisture-wicking", "Lightweight", "Quick-dry"]
+    },
+    "categories": ["workwear"],
+    "tags": ["cap", "hard hat", "safety", "moisture-wicking"],
+    "meta": {
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    }
+  }
+]

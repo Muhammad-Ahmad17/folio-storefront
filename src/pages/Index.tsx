@@ -4,13 +4,17 @@ import Footer from '@/components/footer';
 import HeroCarousel from '@/components/hero-carousel';
 import FeaturedProducts from '@/components/featured-products';
 import CategoryGrid from '@/components/category-grid';
+import ScrollingBanner from '@/components/scrolling-banner';
+import BenefitsSection from '@/components/benefits-section';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollingBanner />
       <Header />
       <main>
         <HeroCarousel />
+        <BenefitsSection />
         <FeaturedProducts />
         <CategoryGrid />
         

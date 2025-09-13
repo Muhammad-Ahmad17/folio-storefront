@@ -1,0 +1,68 @@
+[
+  {
+    "id": "corp-001",
+    "title": "Executive Business Polo",
+    "slug": "executive-business-polo",
+    "shortDescription": "Professional polo shirts for corporate teams",
+    "description": "Premium cotton blend polo shirts perfect for corporate uniforms. Available in multiple colors with custom logo embroidery options.",
+    "price": 25.99,
+    "currency": "USD",
+    "images": ["/images/corporate-uniforms/executive-polo.jpg"],
+    "specs": {
+      "material": "65% Cotton, 35% Polyester",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL", "XXXL"],
+      "colors": ["Navy", "White", "Black", "Grey", "Royal Blue"],
+      "features": ["Moisture-wicking", "Easy care", "Fade resistant"]
+    },
+    "categories": ["corporate-uniforms"],
+    "tags": ["uniform", "corporate", "polo", "embroidery"],
+    "meta": {
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    }
+  },
+  {
+    "id": "corp-002",
+    "title": "Corporate Dress Shirts",
+    "slug": "corporate-dress-shirts",
+    "shortDescription": "Professional dress shirts for business attire",
+    "description": "High-quality dress shirts suitable for office environments. Custom sizing and monogramming available for bulk orders.",
+    "price": 35.99,
+    "currency": "USD",
+    "images": ["/images/corporate-uniforms/dress-shirt.jpg"],
+    "specs": {
+      "material": "100% Cotton",
+      "sizes": ["14", "14.5", "15", "15.5", "16", "16.5", "17", "17.5", "18"],
+      "colors": ["White", "Light Blue", "Light Pink", "Grey"],
+      "features": ["Non-iron", "Wrinkle-free", "Professional fit"]
+    },
+    "categories": ["corporate-uniforms"],
+    "tags": ["dress shirt", "business", "corporate", "monogram"],
+    "meta": {
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    }
+  },
+  {
+    "id": "corp-003",
+    "title": "Security Guard Uniform",
+    "slug": "security-guard-uniform",
+    "shortDescription": "Complete security uniform sets",
+    "description": "Professional security guard uniforms including shirt, pants, and accessories. Durable construction for demanding work environments.",
+    "price": 89.99,
+    "currency": "USD",
+    "images": ["/images/corporate-uniforms/security-uniform.jpg"],
+    "specs": {
+      "material": "Polyester blend",
+      "sizes": ["S", "M", "L", "XL", "XXL", "XXXL"],
+      "colors": ["Navy", "Black", "Grey"],
+      "features": ["Reinforced stitching", "Multiple pockets", "Badge loops"]
+    },
+    "categories": ["corporate-uniforms"],
+    "tags": ["security", "uniform", "professional", "durable"],
+    "meta": {
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    }
+  }
+]

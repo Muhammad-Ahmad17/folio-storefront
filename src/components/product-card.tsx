@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Mail } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -22,6 +23,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, showCategory = false }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const formatPrice = (price: number, currency: string) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -35,20 +38,66 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, showCategory = false
         return 'Football';
       case 'street-wears':
         return 'Street Wears';
+      case 'corporate-uniforms':
+        return 'Corporate Uniforms';
+      case 'workwear':
+        return 'Workwear';
       default:
         return category;
     }
   };
 
+  const handleContactForQuote = () => {
+    const emailBody = `
+I am interested in bulk ordering the following product:
+
+Product: ${product.title}
+Description: ${product.shortDescription}
+Starting Price: ${formatPrice(product.price, product.currency)}
+
+Please provide:
+- Bulk pricing tiers
+- Customization options
+- Minimum order quantities
+- Sample availability
+- Lead times
+
+My contact information:
+Name: 
+Company: 
+Email: 
+Phone: 
+Estimated Quantity: 
+
+Thank you!
+    `;
+    
+    const mailtoLink = `mailto:sales@coresportswears.com?subject=Bulk Quote Request - ${product.title}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
-    <Card className="group bg-gradient-card border border-border shadow-soft hover:shadow-medium transition-all duration-normal hover:-translate-y-1">
+    <Card 
+      className="group bg-gradient-card border border-border shadow-soft hover:shadow-glow transition-all duration-500 hover:-translate-y-2"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="relative overflow-hidden rounded-t-lg">
         <img
           src={product.images[0]}
           alt={product.title}
-          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-slow"
+          className={`w-full h-64 object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
           loading="lazy"
         />
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <div className="absolute bottom-4 left-4 right-4">
+            <Badge className="bg-primary/90 text-primary-foreground font-body">
+              Bulk Pricing Available
+            </Badge>
+          </div>
+        </div>
         {showCategory && product.categories.length > 0 && (
           <Badge 
             variant="secondary" 
@@ -76,7 +125,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, showCategory = false
         </p>
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold font-heading text-primary">
-            {formatPrice(product.price, product.currency)}
+            From {formatPrice(product.price, product.currency)}
           </span>
           <div className="flex gap-1">
             {product.tags.slice(0, 2).map((tag) => (
@@ -95,8 +144,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, showCategory = false
               View Details
             </Link>
           </Button>
-          <Button className="flex-1 bg-primary hover:bg-primary-hover">
-            Quick Buy
+          <Button 
+            onClick={handleContactForQuote}
+            className="flex-1 bg-primary hover:bg-primary-hover hover:shadow-medium transition-all duration-200"
+          >
+            <Mail className="h-4 w-4 mr-1" />
+            Quote Request
           </Button>
         </div>
       </CardFooter>

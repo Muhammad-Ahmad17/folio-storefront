@@ -91,13 +91,8 @@ const Header = () => {
 
           {/* Center Logo */}
           <div className="flex-1 flex justify-center lg:flex-none">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="text-2xl font-heading font-bold text-primary">
-                CORE
-              </div>
-              <div className="text-sm text-muted-foreground font-body">
-                Sports Wears
-              </div>
+            <Link to="/" className="hover:scale-105 transition-transform duration-200">
+              <Logo size="md" />
             </Link>
           </div>
 
