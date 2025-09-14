@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ChevronLeft, Star, ShoppingCart, Heart } from 'lucide-react';
+import { ChevronLeft, Star, MessageCircle, Heart } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
@@ -169,8 +169,8 @@ const ProductPage = () => {
               {/* Actions */}
               <div className="flex space-x-4">
                 <Button size="lg" className="flex-1 bg-primary hover:bg-primary-hover">
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  Add to Cart
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Request Quote
                 </Button>
                 <Button size="lg" variant="outline">
                   <Heart className="h-5 w-5" />

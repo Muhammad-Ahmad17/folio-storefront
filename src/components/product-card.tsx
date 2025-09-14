@@ -149,7 +149,7 @@ Thank you!
             className="flex-1 bg-primary hover:bg-primary-hover hover:shadow-medium transition-all duration-200"
           >
             <Mail className="h-4 w-4 mr-1" />
-            Quote Request
+            Request Quote
           </Button>
         </div>
       </CardFooter>

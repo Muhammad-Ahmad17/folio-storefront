@@ -42,25 +42,11 @@ const Header = () => {
 
   return (
     <>
-      {/* Hero Header Overlay */}
-      {!isScrolled && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none">
-          <div className="text-center">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-white/90 tracking-wider drop-shadow-2xl">
-              CORE
-            </h1>
-            <p className="text-lg md:text-xl text-white/70 font-body mt-2 tracking-wide">
-              Sports Wears Manufacturing
-            </p>
-          </div>
-        </div>
-      )}
-
       {/* Modern Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-border' 
-          : 'bg-transparent'
+          : 'bg-transparent pointer-events-none'
       }`}>
         <div className="container mx-auto px-6">
           <div className={`flex items-center justify-between transition-all duration-700 ${
@@ -72,14 +58,14 @@ const Header = () => {
               {primaryNavItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.submenu ? (
-                    <div 
-                      className="relative"
+                     <div 
+                      className="relative group"
                       onMouseEnter={() => setCategoryDropdownOpen(true)}
                       onMouseLeave={() => setCategoryDropdownOpen(false)}
                     >
                       <Link
                         to={item.href}
-                        className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg group flex items-center gap-1 ${
+                        className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg flex items-center gap-1 pointer-events-auto ${
                           isScrolled 
                             ? 'text-foreground hover:text-primary hover:bg-primary/10' 
                             : 'text-white hover:text-white/80 hover:bg-white/10'
@@ -92,8 +78,8 @@ const Header = () => {
                       </Link>
                       
                       {/* Category Dropdown */}
-                      <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-border opacity-0 invisible transition-all duration-300 ${
-                        categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'translate-y-2'
+                      <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-border z-50 transition-all duration-200 ${
+                        categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
                       }`}>
                         <div className="p-4">
                           {item.submenu.map((subItem) => (
@@ -114,7 +100,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.href}
-                      className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg ${
+                      className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg pointer-events-auto ${
                         isScrolled 
                           ? 'text-foreground hover:text-primary hover:bg-primary/10' 
                           : 'text-white hover:text-white/80 hover:bg-white/10'
@@ -142,7 +128,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg ${
+                  className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg pointer-events-auto ${
                     isScrolled 
                       ? 'text-muted-foreground hover:text-foreground hover:bg-accent' 
                       : 'text-white/80 hover:text-white hover:bg-white/10'
@@ -156,7 +142,7 @@ const Header = () => {
                 <Button 
                   variant="ghost" 
                   size="sm" 
-                  className={`p-2 rounded-lg transition-all duration-300 ${
+                  className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${
                     isScrolled 
                       ? 'hover:bg-accent' 
                       : 'hover:bg-white/10 text-white'
@@ -168,7 +154,7 @@ const Header = () => {
                 <Button 
                   variant="ghost" 
                   size="sm" 
-                  className={`p-2 rounded-lg transition-all duration-300 ${
+                  className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${
                     isScrolled 
                       ? 'hover:bg-accent' 
                       : 'hover:bg-white/10 text-white'
@@ -185,7 +171,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`p-2 rounded-lg transition-all duration-300 ${
+                className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${
                   isScrolled 
                     ? 'hover:bg-accent' 
                     : 'hover:bg-white/10 text-white'

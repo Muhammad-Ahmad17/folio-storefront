@@ -6,12 +6,16 @@ import FeaturedProducts from '@/components/featured-products';
 import CategoryGrid from '@/components/category-grid';
 import ScrollingBanner from '@/components/scrolling-banner';
 import BenefitsSection from '@/components/benefits-section';
+import AnnouncementBar from '@/components/announcement-bar';
+import LandingHeroOverlay from '@/components/landing-hero-overlay';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <AnnouncementBar />
       <ScrollingBanner />
       <Header />
+      <LandingHeroOverlay />
       <main>
         <HeroCarousel />
         <BenefitsSection />

@@ -51,11 +51,10 @@ const HeroCarousel: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true,
-      duration: 30,
+      duration: 800,
     },
     [
-      Autoplay({ delay: 5000, stopOnInteraction: false }),
-      Fade()
+      Autoplay({ delay: 6000, stopOnInteraction: false })
     ]
   );
 
@@ -88,29 +87,29 @@ const HeroCarousel: React.FC = () => {
           {heroSlides.map((slide) => (
             <div key={slide.id} className="embla__slide relative h-full flex-[0_0_100%]">
               <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[8000ms] ease-out"
                 style={{ backgroundImage: `url(${slide.image})` }}
               />
               <div className="absolute inset-0 bg-gradient-hero" />
               
-              <div className="relative h-full flex items-center justify-center">
-                <div className="container mx-auto px-4 text-center text-white">
-                  <div className="max-w-4xl mx-auto">
+              <div className="relative h-full flex items-end justify-start">
+                <div className="container mx-auto px-4 pb-20">
+                  <div className="max-w-lg">
                     {slide.subtitle && (
-                      <p className="text-lg md:text-xl font-medium mb-4 opacity-90 font-body">
+                      <p className="text-sm md:text-base font-medium mb-2 opacity-90 font-body text-white">
                         {slide.subtitle}
                       </p>
                     )}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-heading leading-tight">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 font-heading leading-tight text-white">
                       {slide.title}
                     </h1>
-                    <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 max-w-2xl mx-auto font-body leading-relaxed">
+                    <p className="text-sm md:text-base mb-6 opacity-90 font-body leading-relaxed text-white">
                       {slide.description}
                     </p>
                     <Link to={slide.ctaLink}>
                       <Button 
                         size="lg" 
-                        className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-6 text-lg font-semibold shadow-large transform hover:scale-105 transition-all duration-normal"
+                        className="bg-primary hover:bg-primary-hover text-primary-foreground px-6 py-3 text-base font-semibold shadow-large transform hover:scale-105 transition-all duration-normal"
                       >
                         {slide.ctaText}
                       </Button>

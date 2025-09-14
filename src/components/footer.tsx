@@ -156,6 +156,16 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+          
+          {/* Company Branding */}
+          <div className="text-center mt-8 pt-8 border-t border-primary-foreground/20">
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary-foreground tracking-wider">
+              CORE SPORTS WEARS
+            </h2>
+            <p className="text-primary-foreground/60 mt-2 font-body">
+              Manufacturing Excellence Since 2024
+            </p>
+          </div>
         </div>
       </div>
     </footer>
