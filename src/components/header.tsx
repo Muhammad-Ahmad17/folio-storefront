@@ -1,28 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, MessageCircle, Menu, X } from 'lucide-react';
+import { Search, MessageCircle, Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/theme-toggle';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import Logo from '@/components/logo';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const primaryNavItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { 
       name: 'Categories', 
-      href: '#',
+      href: '/catalogue',
       submenu: [
         { name: 'Football Gear', href: '/products/football' },
         { name: 'Street Wears', href: '/products/street-wears' },
+        { name: 'Corporate Uniforms', href: '/products/corporate-uniforms' },
+        { name: 'Workwear', href: '/products/workwear' },
       ]
     },
     { name: 'Privacy Policy', href: '/privacy' },
@@ -36,163 +41,224 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-card border-b border-border shadow-soft sticky top-0 z-50 font-body">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Desktop Navigation - Left Column */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {primaryNavItems.map((item) => (
-                  <NavigationMenuItem key={item.name}>
-                    {item.submenu ? (
-                      <>
-                        <NavigationMenuTrigger className="font-medium text-foreground hover:text-primary transition-colors">
-                          {item.name}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
-                              <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-primary p-6 no-underline outline-none focus:shadow-md">
-                                <div className="mb-2 mt-4 text-lg font-medium text-primary-foreground">
-                                  Premium Athletic Wear
-                                </div>
-                                <p className="text-sm leading-tight text-primary-foreground/90">
-                                  Discover our complete collection of professional-grade sports equipment and street fashion.
-                                </p>
-                              </div>
-                            </li>
-                            {item.submenu.map((subItem) => (
-                              <li key={subItem.name}>
-                                <Link
-                                  to={subItem.href}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                >
-                                  <div className="text-sm font-medium leading-none">{subItem.name}</div>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <Link
-                        to={item.href}
-                        className="font-medium text-foreground hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-accent"
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </nav>
-
-          {/* Center Logo */}
-          <div className="flex-1 flex justify-center lg:flex-none">
-            <Link to="/" className="hover:scale-105 transition-transform duration-200">
-              <Logo size="md" />
-            </Link>
-          </div>
-
-          {/* Desktop Navigation - Right Column */}
-          <div className="hidden lg:flex items-center space-x-4">
-            {secondaryNavItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Button variant="ghost" size="sm" className="p-2">
-              <Search className="h-4 w-4" />
-              <span className="sr-only">Search</span>
-            </Button>
-            <Button variant="ghost" size="sm" className="p-2">
-              <MessageCircle className="h-4 w-4" />
-              <span className="sr-only">WhatsApp</span>
-            </Button>
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="sm"
-              className="p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              <span className="sr-only">Toggle menu</span>
-            </Button>
+    <>
+      {/* Hero Header Overlay */}
+      {!isScrolled && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none">
+          <div className="text-center">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-white/90 tracking-wider drop-shadow-2xl">
+              CORE
+            </h1>
+            <p className="text-lg md:text-xl text-white/70 font-body mt-2 tracking-wide">
+              Sports Wears Manufacturing
+            </p>
           </div>
         </div>
+      )}
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-border bg-card">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+      {/* Modern Header */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-border' 
+          : 'bg-transparent'
+      }`}>
+        <div className="container mx-auto px-6">
+          <div className={`flex items-center justify-between transition-all duration-700 ${
+            isScrolled ? 'h-16' : 'h-20'
+          }`}>
+            
+            {/* Left Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
               {primaryNavItems.map((item) => (
-                <div key={item.name}>
+                <div key={item.name} className="relative">
                   {item.submenu ? (
-                    <div className="space-y-1">
-                      <div className="text-sm font-medium text-foreground px-3 py-2">
+                    <div 
+                      className="relative"
+                      onMouseEnter={() => setCategoryDropdownOpen(true)}
+                      onMouseLeave={() => setCategoryDropdownOpen(false)}
+                    >
+                      <Link
+                        to={item.href}
+                        className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg group flex items-center gap-1 ${
+                          isScrolled 
+                            ? 'text-foreground hover:text-primary hover:bg-primary/10' 
+                            : 'text-white hover:text-white/80 hover:bg-white/10'
+                        }`}
+                      >
                         {item.name}
-                      </div>
-                      <div className="pl-4 space-y-1">
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            to={subItem.href}
-                            className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
+                          categoryDropdownOpen ? 'rotate-180' : ''
+                        }`} />
+                      </Link>
+                      
+                      {/* Category Dropdown */}
+                      <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-border opacity-0 invisible transition-all duration-300 ${
+                        categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'translate-y-2'
+                      }`}>
+                        <div className="p-4">
+                          {item.submenu.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.href}
+                              className="block p-3 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200 group"
+                            >
+                              <div className="font-medium">{subItem.name}</div>
+                              <div className="text-xs text-muted-foreground group-hover:text-primary/70 mt-1">
+                                View all products
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ) : (
                     <Link
                       to={item.href}
-                      className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-accent rounded-md"
-                      onClick={() => setMobileMenuOpen(false)}
+                      className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg ${
+                        isScrolled 
+                          ? 'text-foreground hover:text-primary hover:bg-primary/10' 
+                          : 'text-white hover:text-white/80 hover:bg-white/10'
+                      }`}
                     >
                       {item.name}
                     </Link>
                   )}
                 </div>
               ))}
-              <div className="border-t border-border pt-2 mt-2 space-y-1">
-                {secondaryNavItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-              <div className="flex justify-center space-x-4 pt-2">
-                <Button variant="ghost" size="sm" className="p-2">
+            </nav>
+
+            {/* Center Logo - Only visible when scrolled */}
+            <div className={`flex-1 flex justify-center lg:flex-none transition-all duration-700 ${
+              isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}>
+              <Link to="/" className="hover:scale-105 transition-transform duration-200">
+                <Logo size="md" />
+              </Link>
+            </div>
+
+            {/* Right Navigation */}
+            <div className="hidden lg:flex items-center space-x-6">
+              {secondaryNavItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg ${
+                    isScrolled 
+                      ? 'text-muted-foreground hover:text-foreground hover:bg-accent' 
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              <div className="flex items-center space-x-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className={`p-2 rounded-lg transition-all duration-300 ${
+                    isScrolled 
+                      ? 'hover:bg-accent' 
+                      : 'hover:bg-white/10 text-white'
+                  }`}
+                >
                   <Search className="h-4 w-4" />
+                  <span className="sr-only">Search</span>
                 </Button>
-                <Button variant="ghost" size="sm" className="p-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className={`p-2 rounded-lg transition-all duration-300 ${
+                    isScrolled 
+                      ? 'hover:bg-accent' 
+                      : 'hover:bg-white/10 text-white'
+                  }`}
+                >
                   <MessageCircle className="h-4 w-4" />
+                  <span className="sr-only">WhatsApp</span>
                 </Button>
               </div>
             </div>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center">
+              <Button
+                variant="ghost"
+                size="sm"
+                className={`p-2 rounded-lg transition-all duration-300 ${
+                  isScrolled 
+                    ? 'hover:bg-accent' 
+                    : 'hover:bg-white/10 text-white'
+                }`}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </div>
           </div>
-        )}
-      </div>
-    </header>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden border-t border-border bg-card mt-4 rounded-lg">
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                {primaryNavItems.map((item) => (
+                  <div key={item.name}>
+                    {item.submenu ? (
+                      <div className="space-y-1">
+                        <div className="text-sm font-medium text-foreground px-3 py-2">
+                          {item.name}
+                        </div>
+                        <div className="pl-4 space-y-1">
+                          {item.submenu.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.href}
+                              className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-accent rounded-md"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+                <div className="border-t border-border pt-2 mt-2 space-y-1">
+                  {secondaryNavItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="flex justify-center space-x-4 pt-2">
+                  <Button variant="ghost" size="sm" className="p-2">
+                    <Search className="h-4 w-4" />
+                  </Button>
+                  <Button variant="ghost" size="sm" className="p-2">
+                    <MessageCircle className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
+    </>
   );
 };
 

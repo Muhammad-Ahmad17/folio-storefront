@@ -56,7 +56,7 @@ const CategoryGrid: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
           {categories.map((category, index) => (
             <Link
               key={category.slug}
@@ -64,7 +64,7 @@ const CategoryGrid: React.FC = () => {
               className="group block"
             >
               <Card className="overflow-hidden border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow hover:-translate-y-2 bg-card/80 backdrop-blur-sm">
-                <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative aspect-square overflow-hidden">
                   <img
                     src={category.image}
                     alt={category.name}

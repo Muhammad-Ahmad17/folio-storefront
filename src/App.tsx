@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@/providers/theme-provider";
+
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import ProductPage from "./pages/ProductPage";
@@ -20,8 +20,8 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light" storageKey="core-ui-theme">
-        <TooltipProvider>
+      <TooltipProvider>
+        <div className="min-h-screen light">
           <Toaster />
           <Sonner />
           <BrowserRouter>
@@ -35,12 +35,11 @@ const App = () => {
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/customer-service" element={<CustomerServicePage />} />
               <Route path="/catalogue" element={<CataloguePage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </TooltipProvider>
-      </ThemeProvider>
+        </div>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };
