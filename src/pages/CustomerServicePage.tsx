@@ -58,8 +58,8 @@ ${formData.message}
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      <main className="py-16">
+      <Header variant="default" />
+      <main className="py-16 pt-20">
         <div className="container mx-auto px-4 max-w-6xl">
           <h1 className="text-4xl font-bold font-heading text-foreground mb-8 text-center">
             Customer Service & Bulk Orders
@@ -88,7 +88,7 @@ ${formData.message}
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="h-4 w-4 text-primary" />
-                    <span className="font-body">+1 (555) 123-4567</span>
+                    <span className="font-body">+1 (347) 892-1680</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="h-4 w-4 text-primary" />
@@ -96,7 +96,7 @@ ${formData.message}
                   </div>
                   <div className="flex items-center gap-3">
                     <MessageCircle className="h-4 w-4 text-primary" />
-                    <span className="font-body">WhatsApp: +1 (555) 123-4567</span>
+                    <span className="font-body">WhatsApp: +1 (347) 892-1680</span>
                   </div>
                 </CardContent>
               </Card>

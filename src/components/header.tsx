@@ -1,27 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Search, MessageCircle, Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/logo';
 
-const Header = () => {
+interface HeaderProps {
+  variant?: 'landing' | 'default';
+}
+
+const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
+  const location = useLocation();
+
+  // Only enable scroll effects on landing page
+  const isLandingPage = variant === 'landing' || location.pathname === '/';
 
   useEffect(() => {
+    if (!isLandingPage) return; // Only add scroll listener on landing page
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isLandingPage]);
 
   const primaryNavItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { 
-      name: 'Categories', 
+    {
+      name: 'Categories',
       href: '/catalogue',
       submenu: [
         { name: 'Football Gear', href: '/products/football' },
@@ -42,45 +52,48 @@ const Header = () => {
 
   return (
     <>
-      {/* Modern Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-border' 
-          : 'bg-transparent pointer-events-none'
-      }`}>
+      {/* Header - Landing page has scroll effects, other pages are always visible */}
+      <header className={`fixed left-0 right-0 z-50 ${isLandingPage
+          ? `top-12 transition-all duration-700 ease-in-out ${isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-border'
+            : 'bg-transparent pointer-events-none'
+          }`
+          : 'top-0 bg-white border-b border-border shadow-sm'
+        }`}>
         <div className="container mx-auto px-6">
-          <div className={`flex items-center justify-between transition-all duration-700 ${
-            isScrolled ? 'h-16' : 'h-20'
-          }`}>
-            
+          <div className={`flex items-center justify-between ${isLandingPage
+              ? `transition-all duration-700 ${isScrolled ? 'h-16' : 'h-20'}`
+              : 'h-16'
+            }`}>
+
             {/* Left Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {primaryNavItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.submenu ? (
-                     <div 
+                    <div
                       className="relative group"
                       onMouseEnter={() => setCategoryDropdownOpen(true)}
                       onMouseLeave={() => setCategoryDropdownOpen(false)}
                     >
                       <Link
                         to={item.href}
-                        className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg flex items-center gap-1 pointer-events-auto ${
-                          isScrolled 
-                            ? 'text-foreground hover:text-primary hover:bg-primary/10' 
-                            : 'text-white hover:text-white/80 hover:bg-white/10'
-                        }`}
+                        className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg flex items-center gap-1 ${isLandingPage ? 'pointer-events-auto' : ''
+                          } ${isLandingPage && isScrolled
+                            ? 'text-foreground hover:text-primary hover:bg-primary/10'
+                            : isLandingPage && !isScrolled
+                              ? 'text-white hover:text-white/80 hover:bg-white/10'
+                              : 'text-foreground hover:text-primary hover:bg-primary/10'
+                          }`}
                       >
                         {item.name}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
-                          categoryDropdownOpen ? 'rotate-180' : ''
-                        }`} />
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${categoryDropdownOpen ? 'rotate-180' : ''
+                          }`} />
                       </Link>
-                      
+
                       {/* Category Dropdown */}
-                      <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-border z-50 transition-all duration-200 ${
-                        categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
-                      }`}>
+                      <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-border z-50 transition-all duration-200 ${categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                        }`}>
                         <div className="p-4">
                           {item.submenu.map((subItem) => (
                             <Link
@@ -100,11 +113,13 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.href}
-                      className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg pointer-events-auto ${
-                        isScrolled 
-                          ? 'text-foreground hover:text-primary hover:bg-primary/10' 
-                          : 'text-white hover:text-white/80 hover:bg-white/10'
-                      }`}
+                      className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg ${isLandingPage ? 'pointer-events-auto' : ''
+                        } ${isLandingPage && isScrolled
+                          ? 'text-foreground hover:text-primary hover:bg-primary/10'
+                          : isLandingPage && !isScrolled
+                            ? 'text-white hover:text-white/80 hover:bg-white/10'
+                            : 'text-foreground hover:text-primary hover:bg-primary/10'
+                        }`}
                     >
                       {item.name}
                     </Link>
@@ -113,10 +128,11 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Center Logo - Only visible when scrolled */}
-            <div className={`flex-1 flex justify-center lg:flex-none transition-all duration-700 ${
-              isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-            }`}>
+            {/* Center Logo - Always visible on non-landing pages, scroll-responsive on landing */}
+            <div className={`flex-1 flex justify-center lg:flex-none ${isLandingPage
+                ? `transition-all duration-700 ${isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`
+                : 'opacity-100 scale-100'
+              }`}>
               <Link to="/" className="hover:scale-105 transition-transform duration-200">
                 <Logo size="md" />
               </Link>
@@ -128,37 +144,43 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg pointer-events-auto ${
-                    isScrolled 
-                      ? 'text-muted-foreground hover:text-foreground hover:bg-accent' 
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
+                  className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg ${isLandingPage ? 'pointer-events-auto' : ''
+                    } ${isLandingPage && isScrolled
+                      ? 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                      : isLandingPage && !isScrolled
+                        ? 'text-white/80 hover:text-white hover:bg-white/10'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                    }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              
+
               <div className="flex items-center space-x-2">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${
-                    isScrolled 
-                      ? 'hover:bg-accent' 
-                      : 'hover:bg-white/10 text-white'
-                  }`}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={`p-2 rounded-lg transition-all duration-300 ${isLandingPage ? 'pointer-events-auto' : ''
+                    } ${isLandingPage && isScrolled
+                      ? 'hover:bg-accent'
+                      : isLandingPage && !isScrolled
+                        ? 'hover:bg-white/10 text-white'
+                        : 'hover:bg-accent'
+                    }`}
                 >
                   <Search className="h-4 w-4" />
                   <span className="sr-only">Search</span>
                 </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${
-                    isScrolled 
-                      ? 'hover:bg-accent' 
-                      : 'hover:bg-white/10 text-white'
-                  }`}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={`p-2 rounded-lg transition-all duration-300 ${isLandingPage ? 'pointer-events-auto' : ''
+                    } ${isLandingPage && isScrolled
+                      ? 'hover:bg-accent'
+                      : isLandingPage && !isScrolled
+                        ? 'hover:bg-white/10 text-white'
+                        : 'hover:bg-accent'
+                    }`}
                 >
                   <MessageCircle className="h-4 w-4" />
                   <span className="sr-only">WhatsApp</span>
@@ -171,11 +193,13 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${
-                  isScrolled 
-                    ? 'hover:bg-accent' 
-                    : 'hover:bg-white/10 text-white'
-                }`}
+                className={`p-2 rounded-lg transition-all duration-300 ${isLandingPage ? 'pointer-events-auto' : ''
+                  } ${isLandingPage && isScrolled
+                    ? 'hover:bg-accent'
+                    : isLandingPage && !isScrolled
+                      ? 'hover:bg-white/10 text-white'
+                      : 'hover:bg-accent'
+                  }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

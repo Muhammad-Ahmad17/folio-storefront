@@ -81,7 +81,7 @@ const HeroCarousel: React.FC = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 3rem)' }}>
       <div className="embla h-full" ref={emblaRef}>
         <div className="embla__container h-full">
           {heroSlides.map((slide) => (

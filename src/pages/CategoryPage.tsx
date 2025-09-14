@@ -4,7 +4,6 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import ProductCard from '@/components/product-card';
 
-// Sample data - in a real app, this would be fetched from API
 const getProductsByCategory = (category: string) => {
   const footballProducts = [
     {
@@ -123,9 +122,9 @@ const CategoryPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header variant="default" />
       
-      <main className="py-16">
+      <main className="py-16 pt-20">
         <div className="container mx-auto px-4">
           {/* Category Header */}
           <div className="text-center mb-12">

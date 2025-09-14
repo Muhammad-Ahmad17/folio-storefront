@@ -1,73 +1,94 @@
-# Welcome to your Lovable project
+# CORE Sports Wears - Folio Storefront
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/74c90aa4-de86-44e5-be22-3041a24b34e1
+A modern, responsive e-commerce storefront for CORE Sports Wears, specializing in bulk manufacturing and custom athletic apparel. Built with cutting-edge web technologies for optimal performance and user experience.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- 🏠 Landing page with hero carousel and product showcases
+- 📱 Fully responsive design for all devices
+- 🎨 Custom product categories (Football, Street Wears, Corporate Uniforms, Workwear)
+- 💼 B2B focused with bulk order and customization capabilities
+- 📞 Comprehensive contact and customer service pages
+- 🔍 Product catalog with detailed specifications
+- 🎯 Professional UI/UX with smooth animations
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/74c90aa4-de86-44e5-be22-3041a24b34e1) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd folio-storefront
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The development server will start at `http://localhost:5173` with hot-reloading enabled.
 
-**Use GitHub Codespaces**
+## Technology Stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is built with modern web technologies:
 
-## What technologies are used for this project?
+- **Build Tool**: Vite for fast development and optimized builds
+- **Framework**: React 18 with TypeScript for type safety
+- **UI Components**: shadcn/ui component library
+- **Styling**: Tailwind CSS for utility-first styling
+- **Routing**: React Router for client-side navigation
+- **Icons**: Lucide React for consistent iconography
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/         # Reusable UI components
+│   ├── ui/            # shadcn/ui components
+│   ├── header.tsx     # Site navigation
+│   ├── footer.tsx     # Site footer
+│   └── ...           # Other components
+├── pages/             # Page components
+├── hooks/             # Custom React hooks
+├── lib/               # Utility functions
+└── providers/         # Context providers
+```
 
-## How can I deploy this project?
+## Build & Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/74c90aa4-de86-44e5-be22-3041a24b34e1) and click on Share -> Publish.
+```sh
+# Build for production
+npm run build
 
-## Can I connect a custom domain to my Lovable project?
+# Preview production build
+npm run preview
 
-Yes, you can!
+# Type checking
+npm run type-check
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# Linting
+npm run lint
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Contributing
+
+1. Create a feature branch from `main`
+2. Make your changes
+3. Test thoroughly
+4. Submit a pull request
+
+## License
+
+Copyright © 2024 CORE Sports Wears. All rights reserved.

@@ -79,7 +79,7 @@ const CataloguePage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header variant="default" />
       
       <main className="pt-20">
         {/* Page Header */}

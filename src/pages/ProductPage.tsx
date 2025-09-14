@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 
-// Sample product data - would be fetched from API in real app
 const getProduct = (category: string, productSlug: string) => {
   const allProducts = {
     'football': [
@@ -78,9 +77,9 @@ const ProductPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header variant="default" />
       
-      <main className="py-8">
+      <main className="py-8 pt-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <div className="flex items-center space-x-2 mb-8 text-sm font-body">

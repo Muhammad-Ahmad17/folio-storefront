@@ -5,8 +5,8 @@ import Footer from '@/components/footer';
 const PrivacyPage = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      <main className="py-16">
+      <Header variant="default" />
+      <main className="py-16 pt-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-4xl font-bold font-heading text-foreground mb-8">Privacy Policy</h1>
           

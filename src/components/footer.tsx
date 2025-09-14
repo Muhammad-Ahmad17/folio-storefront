@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   const contactInfo = {
-    address: "123 Athletic Avenue, Sports District, NY 10001",
-    phone: "+1 (555) 123-CORE",
+    address: "789 Industrial Park Drive, Manufacturing District, NY 10032",
+    phone: "+1 (347) 892-1680",
     email: "info@coresportswears.com"
   };
 
