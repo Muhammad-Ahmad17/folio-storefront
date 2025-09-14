@@ -75,6 +75,35 @@ const ProductPage = () => {
     }).format(price);
   };
 
+  const handleContactForQuote = () => {
+    const emailBody = `
+I am interested in bulk ordering the following product:
+
+Product: ${product.title}
+Description: ${product.shortDescription}
+Starting Price: ${formatPrice(product.price, product.currency)}
+
+Please provide:
+- Bulk pricing tiers
+- Customization options
+- Minimum order quantities
+- Lead times
+- Available sizes: ${product.specs.sizes ? product.specs.sizes.join(', ') : 'N/A'}
+
+My contact information:
+Name: 
+Company: 
+Email: 
+Phone: 
+Estimated Quantity: 
+
+Thank you!
+    `;
+
+    const mailtoLink = `mailto:sales@coresportswears.com?subject=Bulk Quote Request - ${product.title}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header variant="default" />
@@ -167,7 +196,11 @@ const ProductPage = () => {
 
               {/* Actions */}
               <div className="flex space-x-4">
-                <Button size="lg" className="flex-1 bg-primary hover:bg-primary-hover">
+                <Button
+                  size="lg"
+                  className="flex-1 bg-primary hover:bg-primary-hover"
+                  onClick={handleContactForQuote}
+                >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Request Quote
                 </Button>

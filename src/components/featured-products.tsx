@@ -60,7 +60,7 @@ const FeaturedProducts: React.FC = () => {
 
         <div className="text-center">
           <Button asChild size="lg" variant="outline" className="px-8">
-            <Link to="/products">
+            <Link to="/catalogue">
               View All Products
             </Link>
           </Button>

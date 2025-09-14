@@ -130,11 +130,15 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
 
             {/* Center Logo - Always visible on non-landing pages, scroll-responsive on landing */}
             <div className={`flex-1 flex justify-center lg:flex-none ${isLandingPage
-              ? `transition-all duration-700 ${isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`
+              ? `transition-all duration-700 ${isScrolled ? 'opacity-100 scale-100' : 'opacity-100 scale-100'}`
               : 'opacity-100 scale-100'
               }`}>
               <Link to="/" className="hover:scale-105 transition-transform duration-200">
-                <Logo size="md" />
+                <Logo
+                  size="md"
+                  className={isLandingPage && !isScrolled ? 'text-white' : ''}
+                  hideText={isLandingPage && !isScrolled}
+                />
               </Link>
             </div>
 
