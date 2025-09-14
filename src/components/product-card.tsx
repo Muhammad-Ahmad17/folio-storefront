@@ -86,7 +86,7 @@ Thank you!
         <img
           src={product.images[0]}
           alt={product.title}
-          className={`w-full h-64 object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+          className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
           loading="lazy"
         />
         <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
@@ -115,15 +115,15 @@ Thank you!
         )}
       </div>
 
-      <CardContent className="p-6">
-        <h3 className="font-heading font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors">
+      <CardContent className="p-4 sm:p-6">
+        <h3 className="font-heading font-semibold text-base sm:text-lg mb-2 text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors">
           {product.title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 font-body line-clamp-2">
+        <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 font-body line-clamp-2">
           {product.shortDescription}
         </p>
-        <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold font-heading text-primary">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <span className="text-lg sm:text-2xl font-bold font-heading text-primary">
             From {formatPrice(product.price, product.currency)}
           </span>
           <div className="flex gap-1">
@@ -136,18 +136,18 @@ Thank you!
         </div>
       </CardContent>
 
-      <CardFooter className="p-6 pt-0">
-        <div className="flex w-full gap-3">
-          <Button asChild variant="outline" className="flex-1">
+      <CardFooter className="p-4 sm:p-6 pt-0">
+        <div className="flex w-full gap-2 sm:gap-3 flex-col sm:flex-row">
+          <Button asChild variant="outline" className="flex-1 text-xs sm:text-sm">
             <Link to={`/products/${product.categories[0]}/${product.slug}`}>
               View Details
             </Link>
           </Button>
           <Button
             onClick={handleContactForQuote}
-            className="flex-1 bg-primary hover:bg-primary-hover hover:shadow-medium transition-all duration-200"
+            className="flex-1 bg-primary hover:bg-primary-hover hover:shadow-medium transition-all duration-200 text-xs sm:text-sm"
           >
-            <Mail className="h-4 w-4 mr-1" />
+            <Mail className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
             Request Quote
           </Button>
         </div>

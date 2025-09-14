@@ -126,22 +126,22 @@ const HeroCarousel: React.FC = () => {
       <Button
         variant="ghost"
         size="lg"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 h-12 w-12 p-0"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 h-10 w-10 sm:h-12 sm:w-12 p-0 touch-manipulation"
         onClick={scrollPrev}
         disabled={!prevBtnEnabled}
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
         <span className="sr-only">Previous slide</span>
       </Button>
 
       <Button
         variant="ghost"
         size="lg"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 h-12 w-12 p-0"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 h-10 w-10 sm:h-12 sm:w-12 p-0 touch-manipulation"
         onClick={scrollNext}
         disabled={!nextBtnEnabled}
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
         <span className="sr-only">Next slide</span>
       </Button>
 

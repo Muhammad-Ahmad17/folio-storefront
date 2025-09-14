@@ -22,7 +22,7 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ className = "" }) => 
         {[...messages, ...messages].map((message, index) => (
           <span
             key={index}
-            className="inline-block px-8 text-sm font-semibold font-body tracking-wide"
+            className="inline-block px-4 sm:px-6 md:px-8 text-xs sm:text-sm font-semibold font-body tracking-wide"
           >
             {message}
           </span>
