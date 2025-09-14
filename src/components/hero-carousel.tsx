@@ -87,7 +87,7 @@ const HeroCarousel: React.FC = () => {
           {heroSlides.map((slide) => (
             <div key={slide.id} className="embla__slide relative h-full flex-[0_0_100%]">
               <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[8000ms] ease-out"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-1000 ease-out"
                 style={{ backgroundImage: `url(${slide.image})` }}
               />
               <div className="absolute inset-0 bg-gradient-hero" />
@@ -152,8 +152,8 @@ const HeroCarousel: React.FC = () => {
             <button
               key={index}
               className={`w-3 h-3 rounded-full transition-all duration-normal ${index === selectedIndex
-                  ? 'bg-white'
-                  : 'bg-white/50 hover:bg-white/75'
+                ? 'bg-white'
+                : 'bg-white/50 hover:bg-white/75'
                 }`}
               onClick={() => scrollTo(index)}
             >
