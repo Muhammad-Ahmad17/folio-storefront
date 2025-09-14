@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 
-// Sample product data - would be fetched from API in real app
 const getProduct = (category: string, productSlug: string) => {
   const allProducts = {
     'football': [
@@ -58,13 +57,13 @@ const getProduct = (category: string, productSlug: string) => {
 
 const ProductPage = () => {
   const { category, product: productSlug } = useParams<{ category: string; product: string }>();
-  
+
   if (!category || !productSlug) {
     return <div>Product not found</div>;
   }
 
   const product = getProduct(category, productSlug);
-  
+
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -78,9 +77,9 @@ const ProductPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="py-8">
+      <Header variant="default" />
+
+      <main className="py-8 pt-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <div className="flex items-center space-x-2 mb-8 text-sm font-body">
@@ -88,8 +87,8 @@ const ProductPage = () => {
               Home
             </Link>
             <span className="text-muted-foreground">/</span>
-            <Link 
-              to={`/products/${category}`} 
+            <Link
+              to={`/products/${category}`}
               className="text-muted-foreground hover:text-foreground transition-colors capitalize"
             >
               {category.replace('-', ' ')}
@@ -138,7 +137,7 @@ const ProductPage = () => {
                 <p className="text-xl text-muted-foreground font-body mb-6">
                   {product.shortDescription}
                 </p>
-                
+
                 <div className="flex items-center space-x-4 mb-6">
                   <span className="text-3xl font-bold text-primary font-heading">
                     {formatPrice(product.price, product.currency)}
@@ -199,7 +198,7 @@ const ProductPage = () => {
           {/* Product Description */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold font-heading mb-6">Product Description</h2>
-            <div 
+            <div
               className="prose prose-lg max-w-none font-body"
               dangerouslySetInnerHTML={{ __html: product.description }}
             />
@@ -239,7 +238,7 @@ const ProductPage = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

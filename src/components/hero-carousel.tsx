@@ -49,7 +49,7 @@ const heroSlides: HeroSlide[] = [
 
 const HeroCarousel: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
+    {
       loop: true,
       duration: 800,
     },
@@ -81,17 +81,17 @@ const HeroCarousel: React.FC = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 3rem)' }}>
       <div className="embla h-full" ref={emblaRef}>
         <div className="embla__container h-full">
           {heroSlides.map((slide) => (
             <div key={slide.id} className="embla__slide relative h-full flex-[0_0_100%]">
-              <div 
+              <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[8000ms] ease-out"
                 style={{ backgroundImage: `url(${slide.image})` }}
               />
               <div className="absolute inset-0 bg-gradient-hero" />
-              
+
               <div className="relative h-full flex items-end justify-start">
                 <div className="container mx-auto px-4 pb-20">
                   <div className="max-w-lg">
@@ -107,8 +107,8 @@ const HeroCarousel: React.FC = () => {
                       {slide.description}
                     </p>
                     <Link to={slide.ctaLink}>
-                      <Button 
-                        size="lg" 
+                      <Button
+                        size="lg"
                         className="bg-primary hover:bg-primary-hover text-primary-foreground px-6 py-3 text-base font-semibold shadow-large transform hover:scale-105 transition-all duration-normal"
                       >
                         {slide.ctaText}
@@ -151,11 +151,10 @@ const HeroCarousel: React.FC = () => {
           {heroSlides.map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-normal ${
-                index === selectedIndex
+              className={`w-3 h-3 rounded-full transition-all duration-normal ${index === selectedIndex
                   ? 'bg-white'
                   : 'bg-white/50 hover:bg-white/75'
-              }`}
+                }`}
               onClick={() => scrollTo(index)}
             >
               <span className="sr-only">Go to slide {index + 1}</span>

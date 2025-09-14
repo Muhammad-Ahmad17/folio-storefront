@@ -6,22 +6,20 @@ import FeaturedProducts from '@/components/featured-products';
 import CategoryGrid from '@/components/category-grid';
 import ScrollingBanner from '@/components/scrolling-banner';
 import BenefitsSection from '@/components/benefits-section';
-import AnnouncementBar from '@/components/announcement-bar';
 import LandingHeroOverlay from '@/components/landing-hero-overlay';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <AnnouncementBar />
-      <ScrollingBanner />
-      <Header />
+      <ScrollingBanner className="fixed top-0 left-0 right-0 z-[60]" />
+      <Header variant="landing" />
       <LandingHeroOverlay />
       <main>
         <HeroCarousel />
         <BenefitsSection />
         <FeaturedProducts />
         <CategoryGrid />
-        
+
         {/* About Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">

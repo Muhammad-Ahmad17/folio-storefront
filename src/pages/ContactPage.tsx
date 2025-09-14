@@ -10,15 +10,14 @@ import { Textarea } from '@/components/ui/textarea';
 const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted');
+    // Handle form submission logic would go here
   };
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="py-16">
+      <Header variant="default" />
+
+      <main className="py-16 pt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -64,7 +63,7 @@ const ContactPage = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                         Email Address
@@ -77,7 +76,7 @@ const ContactPage = () => {
                         className="w-full"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
                         Subject
@@ -90,7 +89,7 @@ const ContactPage = () => {
                         className="w-full"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                         Message
@@ -104,7 +103,7 @@ const ContactPage = () => {
                         placeholder="Tell us how we can help you..."
                       />
                     </div>
-                    
+
                     <Button type="submit" className="w-full bg-primary hover:bg-primary-hover">
                       Send Message
                     </Button>
@@ -123,9 +122,9 @@ const ContactPage = () => {
                       <div className="font-body">
                         <h3 className="font-semibold font-heading text-foreground mb-2">Our Address</h3>
                         <p className="text-muted-foreground">
-                          123 Athletic Avenue<br />
-                          Sports District<br />
-                          New York, NY 10001
+                          789 Industrial Park Drive<br />
+                          Manufacturing District<br />
+                          New York, NY 10032
                         </p>
                       </div>
                     </div>
@@ -140,7 +139,7 @@ const ContactPage = () => {
                       </div>
                       <div className="font-body">
                         <h3 className="font-semibold font-heading text-foreground mb-2">Phone</h3>
-                        <p className="text-muted-foreground">+1 (555) 123-CORE</p>
+                        <p className="text-muted-foreground">+1 (347) 892-1680</p>
                         <p className="text-sm text-muted-foreground mt-1">Monday - Friday, 9am - 6pm EST</p>
                       </div>
                     </div>
@@ -184,7 +183,7 @@ const ContactPage = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

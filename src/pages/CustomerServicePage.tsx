@@ -23,7 +23,7 @@ const CustomerServicePage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Create email body
     const emailBody = `
 Name: ${formData.name}
@@ -36,13 +36,13 @@ Quantity: ${formData.quantity}
 Message:
 ${formData.message}
     `;
-    
+
     // Create mailto link
     const mailtoLink = `mailto:sales@coresportswears.com?subject=Bulk Order Inquiry - ${formData.orderType}&body=${encodeURIComponent(emailBody)}`;
-    
+
     // Open email client
     window.location.href = mailtoLink;
-    
+
     toast({
       title: "Email Client Opened",
       description: "Please send the email to complete your inquiry.",
@@ -58,8 +58,8 @@ ${formData.message}
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      <main className="py-16">
+      <Header variant="default" />
+      <main className="py-16 pt-20">
         <div className="container mx-auto px-4 max-w-6xl">
           <h1 className="text-4xl font-bold font-heading text-foreground mb-8 text-center">
             Customer Service & Bulk Orders
@@ -67,7 +67,7 @@ ${formData.message}
           <p className="text-lg text-muted-foreground text-center mb-12 font-body">
             Get in touch for bulk orders, customization, and any questions about our manufacturing services.
           </p>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
@@ -88,7 +88,7 @@ ${formData.message}
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="h-4 w-4 text-primary" />
-                    <span className="font-body">+1 (555) 123-4567</span>
+                    <span className="font-body">+1 (347) 892-1680</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="h-4 w-4 text-primary" />
@@ -96,7 +96,7 @@ ${formData.message}
                   </div>
                   <div className="flex items-center gap-3">
                     <MessageCircle className="h-4 w-4 text-primary" />
-                    <span className="font-body">WhatsApp: +1 (555) 123-4567</span>
+                    <span className="font-body">WhatsApp: +1 (347) 892-1680</span>
                   </div>
                 </CardContent>
               </Card>
@@ -168,7 +168,7 @@ ${formData.message}
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="company">Company Name</Label>

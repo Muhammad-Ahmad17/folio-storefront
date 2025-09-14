@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   const contactInfo = {
-    address: "123 Athletic Avenue, Sports District, NY 10001",
-    phone: "+1 (555) 123-CORE",
+    address: "789 Industrial Park Drive, Manufacturing District, NY 10032",
+    phone: "+1 (347) 892-1680",
     email: "info@coresportswears.com"
   };
 
@@ -156,7 +156,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          
+
           {/* Company Branding */}
           <div className="text-center mt-8 pt-8 border-t border-primary-foreground/20">
             <h2 className="text-4xl md:text-5xl font-heading font-black text-primary-foreground tracking-wider">
