@@ -156,7 +156,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          
+
           {/* Company Branding */}
           <div className="text-center mt-8 pt-8 border-t border-primary-foreground/20">
             <h2 className="text-4xl md:text-5xl font-heading font-black text-primary-foreground tracking-wider">

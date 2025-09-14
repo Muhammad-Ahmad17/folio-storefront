@@ -10,8 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted');
+    // Handle form submission logic would go here
   };
 
   return (

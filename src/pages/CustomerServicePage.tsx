@@ -23,7 +23,7 @@ const CustomerServicePage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Create email body
     const emailBody = `
 Name: ${formData.name}
@@ -36,13 +36,13 @@ Quantity: ${formData.quantity}
 Message:
 ${formData.message}
     `;
-    
+
     // Create mailto link
     const mailtoLink = `mailto:sales@coresportswears.com?subject=Bulk Order Inquiry - ${formData.orderType}&body=${encodeURIComponent(emailBody)}`;
-    
+
     // Open email client
     window.location.href = mailtoLink;
-    
+
     toast({
       title: "Email Client Opened",
       description: "Please send the email to complete your inquiry.",
@@ -67,7 +67,7 @@ ${formData.message}
           <p className="text-lg text-muted-foreground text-center mb-12 font-body">
             Get in touch for bulk orders, customization, and any questions about our manufacturing services.
           </p>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
@@ -168,7 +168,7 @@ ${formData.message}
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="company">Company Name</Label>

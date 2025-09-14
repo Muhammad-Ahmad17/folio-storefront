@@ -70,8 +70,8 @@ const CataloguePage = () => {
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
 
   const toggleCategory = (slug: string) => {
-    setExpandedCategories(prev => 
-      prev.includes(slug) 
+    setExpandedCategories(prev =>
+      prev.includes(slug)
         ? prev.filter(s => s !== slug)
         : [...prev, slug]
     );
@@ -80,7 +80,7 @@ const CataloguePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header variant="default" />
-      
+
       <main className="pt-20">
         {/* Page Header */}
         <section className="py-16 bg-gradient-secondary">
@@ -98,7 +98,7 @@ const CataloguePage = () => {
 
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col lg:flex-row gap-8">
-            
+
             {/* Sidebar */}
             <aside className="lg:w-80 space-y-6">
               <div className="bg-card rounded-xl border border-border p-6 shadow-soft">
@@ -120,12 +120,11 @@ const CataloguePage = () => {
                           <Badge variant="secondary" className="text-xs">
                             {category.productCount}
                           </Badge>
-                          <ChevronRight className={`w-4 h-4 transition-transform duration-200 ${
-                            expandedCategories.includes(category.slug) ? 'rotate-90' : ''
-                          }`} />
+                          <ChevronRight className={`w-4 h-4 transition-transform duration-200 ${expandedCategories.includes(category.slug) ? 'rotate-90' : ''
+                            }`} />
                         </div>
                       </button>
-                      
+
                       {/* Subcategories */}
                       {expandedCategories.includes(category.slug) && category.subcategories && (
                         <div className="ml-6 mt-2 space-y-1">
@@ -148,7 +147,7 @@ const CataloguePage = () => {
 
             {/* Main Content */}
             <div className="flex-1">
-              
+
               {/* View Controls */}
               <div className="flex justify-between items-center mb-8">
                 <div>
@@ -159,7 +158,7 @@ const CataloguePage = () => {
                     {categories.reduce((acc, cat) => acc + cat.productCount, 0)} total products
                   </p>
                 </div>
-                
+
                 <div className="flex items-center gap-2">
                   <Button
                     variant={viewMode === 'grid' ? 'default' : 'outline'}
@@ -179,11 +178,10 @@ const CataloguePage = () => {
               </div>
 
               {/* Categories Grid/List */}
-              <div className={`grid gap-6 ${
-                viewMode === 'grid' 
-                  ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3' 
+              <div className={`grid gap-6 ${viewMode === 'grid'
+                  ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
                   : 'grid-cols-1'
-              }`}>
+                }`}>
                 {categories.map((category, index) => (
                   <Link
                     key={category.slug}
@@ -191,27 +189,25 @@ const CataloguePage = () => {
                     className="group block"
                   >
                     <Card className="overflow-hidden border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow hover:-translate-y-1 bg-card/80 backdrop-blur-sm">
-                      <div className={`relative overflow-hidden ${
-                        viewMode === 'grid' ? 'aspect-[4/3]' : 'aspect-[5/2]'
-                      }`}>
+                      <div className={`relative overflow-hidden ${viewMode === 'grid' ? 'aspect-[4/3]' : 'aspect-[5/2]'
+                        }`}>
                         <img
                           src={category.image}
                           alt={category.name}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />
-                        <div className={`absolute inset-0 bg-gradient-to-t ${
-                          index === 0 ? 'from-blue-600/80 to-purple-600/80' :
-                          index === 1 ? 'from-orange-600/80 to-red-600/80' :
-                          index === 2 ? 'from-gray-600/80 to-slate-600/80' :
-                          'from-green-600/80 to-emerald-600/80'
-                        } to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300`} />
-                        
+                        <div className={`absolute inset-0 bg-gradient-to-t ${index === 0 ? 'from-blue-600/80 to-purple-600/80' :
+                            index === 1 ? 'from-orange-600/80 to-red-600/80' :
+                              index === 2 ? 'from-gray-600/80 to-slate-600/80' :
+                                'from-green-600/80 to-emerald-600/80'
+                          } to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300`} />
+
                         <div className="absolute top-4 right-4">
                           <Badge className="bg-white/20 text-white backdrop-blur-md border-white/20">
                             {category.productCount}+ Products
                           </Badge>
                         </div>
-                        
+
                         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                           <h3 className="text-xl font-bold font-heading mb-2 group-hover:scale-105 transition-transform duration-300">
                             {category.name}
@@ -220,7 +216,7 @@ const CataloguePage = () => {
                             {category.description}
                           </p>
                         </div>
-                        
+
                         {/* Hover Effect */}
                         <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -239,7 +235,7 @@ const CataloguePage = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

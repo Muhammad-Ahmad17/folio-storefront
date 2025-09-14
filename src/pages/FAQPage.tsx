@@ -55,7 +55,7 @@ const FAQPage = () => {
           <p className="text-lg text-muted-foreground text-center mb-12 font-body">
             Find answers to common questions about our bulk manufacturing and customization services.
           </p>
-          
+
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>

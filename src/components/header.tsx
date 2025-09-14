@@ -54,16 +54,16 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
     <>
       {/* Header - Landing page has scroll effects, other pages are always visible */}
       <header className={`fixed left-0 right-0 z-50 ${isLandingPage
-          ? `top-12 transition-all duration-700 ease-in-out ${isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-border'
-            : 'bg-transparent pointer-events-none'
-          }`
-          : 'top-0 bg-white border-b border-border shadow-sm'
+        ? `top-12 transition-all duration-700 ease-in-out ${isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-border'
+          : 'bg-transparent pointer-events-none'
+        }`
+        : 'top-0 bg-white border-b border-border shadow-sm'
         }`}>
         <div className="container mx-auto px-6">
           <div className={`flex items-center justify-between ${isLandingPage
-              ? `transition-all duration-700 ${isScrolled ? 'h-16' : 'h-20'}`
-              : 'h-16'
+            ? `transition-all duration-700 ${isScrolled ? 'h-16' : 'h-20'}`
+            : 'h-16'
             }`}>
 
             {/* Left Navigation */}
@@ -130,8 +130,8 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
 
             {/* Center Logo - Always visible on non-landing pages, scroll-responsive on landing */}
             <div className={`flex-1 flex justify-center lg:flex-none ${isLandingPage
-                ? `transition-all duration-700 ${isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`
-                : 'opacity-100 scale-100'
+              ? `transition-all duration-700 ${isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`
+              : 'opacity-100 scale-100'
               }`}>
               <Link to="/" className="hover:scale-105 transition-transform duration-200">
                 <Logo size="md" />

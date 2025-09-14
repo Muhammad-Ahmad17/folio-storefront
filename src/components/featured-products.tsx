@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import ProductCard from '@/components/product-card';
 import { Button } from '@/components/ui/button';
 
-// Sample featured products from our JSON data
 const featuredProducts = [
   {
     id: "fb-001",
