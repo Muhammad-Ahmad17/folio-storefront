@@ -71,13 +71,13 @@ Estimated Quantity:
 
 Thank you!
     `;
-    
+
     const mailtoLink = `mailto:sales@coresportswears.com?subject=Bulk Quote Request - ${product.title}&body=${encodeURIComponent(emailBody)}`;
     window.location.href = mailtoLink;
   };
 
   return (
-    <Card 
+    <Card
       className="group bg-gradient-card border border-border shadow-soft hover:shadow-glow transition-all duration-500 hover:-translate-y-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -89,9 +89,8 @@ Thank you!
           className={`w-full h-64 object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
           loading="lazy"
         />
-        <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}>
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
+          }`}>
           <div className="absolute bottom-4 left-4 right-4">
             <Badge className="bg-primary/90 text-primary-foreground font-body">
               Bulk Pricing Available
@@ -99,16 +98,16 @@ Thank you!
           </div>
         </div>
         {showCategory && product.categories.length > 0 && (
-          <Badge 
-            variant="secondary" 
-            className="absolute top-3 left-3 bg-background/90 backdrop-blur-sm"
+          <Badge
+            variant="secondary"
+            className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-gray-900 font-semibold shadow-md border border-gray-200"
           >
             {getCategoryDisplayName(product.categories[0])}
           </Badge>
         )}
         {product.tags.includes('pro') && (
-          <Badge 
-            variant="default" 
+          <Badge
+            variant="default"
             className="absolute top-3 right-3 bg-primary text-primary-foreground"
           >
             Pro
@@ -117,10 +116,10 @@ Thank you!
       </div>
 
       <CardContent className="p-6">
-        <h3 className="font-heading font-semibold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">
+        <h3 className="font-heading font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors">
           {product.title}
         </h3>
-        <p className="text-muted-foreground text-sm mb-4 font-body line-clamp-2">
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 font-body line-clamp-2">
           {product.shortDescription}
         </p>
         <div className="flex items-center justify-between">
@@ -144,7 +143,7 @@ Thank you!
               View Details
             </Link>
           </Button>
-          <Button 
+          <Button
             onClick={handleContactForQuote}
             className="flex-1 bg-primary hover:bg-primary-hover hover:shadow-medium transition-all duration-200"
           >

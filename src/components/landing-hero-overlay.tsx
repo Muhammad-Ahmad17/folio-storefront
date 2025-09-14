@@ -13,12 +13,12 @@ const LandingHeroOverlay = () => {
 
   return (
     <div
-      className={`fixed top-0 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none transition-all duration-1000 ease-out ${isScrolled
-          ? 'translate-y-4 scale-50'
-          : 'translate-y-1/2 scale-100'
+      className={`fixed left-1/2 transform -translate-x-1/2 z-30 pointer-events-none transition-all duration-1000 ease-out ${isScrolled
+        ? 'opacity-0 scale-50 -translate-y-96'
+        : 'opacity-100 scale-100 translate-y-1/2'
         }`}
       style={{
-        top: isScrolled ? '1rem' : '50vh'
+        top: isScrolled ? '0' : '50vh'
       }}
     >
       <div className="text-center">
