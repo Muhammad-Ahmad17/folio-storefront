@@ -41,25 +41,25 @@ const featuredProducts = [
 
 const FeaturedProducts: React.FC = () => {
   return (
-    <section className="py-16 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground mb-4">
+    <section className="py-12 sm:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-foreground mb-4">
             Featured Products
           </h2>
-          <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-muted-foreground font-body max-w-2xl mx-auto mb-6 sm:mb-8">
             Discover our hand-picked selection of premium athletic wear and street fashion favorites.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} showCategory />
           ))}
         </div>
 
         <div className="text-center">
-          <Button asChild size="lg" variant="outline" className="px-8">
+          <Button asChild size="lg" variant="outline" className="px-6 sm:px-8 text-sm sm:text-base">
             <Link to="/catalogue">
               View All Products
             </Link>
