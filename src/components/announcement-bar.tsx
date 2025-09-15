@@ -11,7 +11,7 @@ const AnnouncementBar = () => {
   ];
 
   return (
-    <div className="bg-primary text-primary-foreground py-2 overflow-hidden">
+    <div className="bg-gradient-to-r from-primary via-primary to-primary text-white py-2 overflow-hidden mt-16 relative z-[60]">
       <div className="animate-marquee whitespace-nowrap">
         <span className="text-sm font-medium">
           {announcements.map((announcement, index) => (

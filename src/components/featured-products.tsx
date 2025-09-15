@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '@/components/product-card';
 import { Button } from '@/components/ui/button';
+import { useScrollAnimation, useStaggeredScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const featuredProducts = [
   {
@@ -40,10 +41,20 @@ const featuredProducts = [
 ];
 
 const FeaturedProducts: React.FC = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: productsRef, visibleItems } = useStaggeredScrollAnimation(featuredProducts.length, 200);
+  const { ref: buttonRef, isVisible: buttonVisible } = useScrollAnimation();
+
   return (
     <section className="py-12 sm:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12">
+        <div
+          ref={titleRef}
+          className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${titleVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
+            }`}
+        >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-foreground mb-4">
             Featured Products
           </h2>
@@ -52,13 +63,28 @@ const FeaturedProducts: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} showCategory />
+        <div ref={productsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
+          {featuredProducts.map((product, index) => (
+            <div
+              key={product.id}
+              className={`transition-all duration-700 ${visibleItems[index]
+                  ? 'opacity-100 translate-y-0 scale-100'
+                  : 'opacity-0 translate-y-12 scale-95'
+                }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <ProductCard product={product} showCategory />
+            </div>
           ))}
         </div>
 
-        <div className="text-center">
+        <div
+          ref={buttonRef}
+          className={`text-center transition-all duration-1000 ${buttonVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
+            }`}
+        >
           <Button asChild size="lg" variant="outline" className="px-6 sm:px-8 text-sm sm:text-base">
             <Link to="/catalogue">
               View All Products

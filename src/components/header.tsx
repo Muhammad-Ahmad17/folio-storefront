@@ -52,17 +52,17 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
 
   return (
     <>
-      {/* Header - Landing page has scroll effects, other pages are always visible */}
-      <header className={`fixed left-0 right-0 z-50 ${isLandingPage
-        ? `top-12 transition-all duration-700 ease-in-out ${isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-border'
-          : 'bg-transparent pointer-events-none'
+      {/* Header - Always fixed at the very top of the page */}
+      <header className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-700 ease-in-out ${isLandingPage
+        ? `${isScrolled
+          ? 'bg-primary/95 backdrop-blur-md shadow-xl border-b border-primary/20'
+          : 'bg-gradient-to-r from-primary/95 via-primary/90 to-primary/95 backdrop-blur-md shadow-2xl'
         }`
-        : 'top-0 bg-white border-b border-border shadow-sm'
+        : 'bg-card/95 backdrop-blur-md border-b border-border shadow-soft'
         }`}>
         <div className="container mx-auto px-6">
           <div className={`flex items-center justify-between ${isLandingPage
-            ? `transition-all duration-700 ${isScrolled ? 'h-16' : 'h-20'}`
+            ? `transition-all duration-700 ${isScrolled ? 'h-16' : 'h-18'}`
             : 'h-16'
             }`}>
 
@@ -78,12 +78,11 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
                     >
                       <Link
                         to={item.href}
-                        className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg flex items-center gap-1 ${isLandingPage ? 'pointer-events-auto' : ''
-                          } ${isLandingPage && isScrolled
-                            ? 'text-foreground hover:text-primary hover:bg-primary/10'
-                            : isLandingPage && !isScrolled
-                              ? 'text-white hover:text-white/80 hover:bg-white/10'
-                              : 'text-foreground hover:text-primary hover:bg-primary/10'
+                        className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg flex items-center gap-1 pointer-events-auto ${isLandingPage && isScrolled
+                          ? 'text-white hover:text-white/80 hover:bg-white/10'
+                          : isLandingPage && !isScrolled
+                            ? 'text-white hover:text-white/90 hover:bg-white/10'
+                            : 'text-foreground hover:text-primary hover:bg-accent'
                           }`}
                       >
                         {item.name}
@@ -92,17 +91,17 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
                       </Link>
 
                       {/* Category Dropdown */}
-                      <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-border z-50 transition-all duration-200 ${categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                      <div className={`absolute top-full left-0 mt-2 w-64 bg-card rounded-xl shadow-large border border-border z-50 transition-all duration-200 ${categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
                         }`}>
                         <div className="p-4">
                           {item.submenu.map((subItem) => (
                             <Link
                               key={subItem.name}
                               to={subItem.href}
-                              className="block p-3 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200 group"
+                              className="block p-3 rounded-lg text-foreground hover:bg-accent hover:text-primary transition-colors duration-200 group"
                             >
                               <div className="font-medium">{subItem.name}</div>
-                              <div className="text-xs text-muted-foreground group-hover:text-primary/70 mt-1">
+                              <div className="text-xs text-muted-foreground group-hover:text-primary/80 mt-1">
                                 View all products
                               </div>
                             </Link>
@@ -113,12 +112,11 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
                   ) : (
                     <Link
                       to={item.href}
-                      className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg ${isLandingPage ? 'pointer-events-auto' : ''
-                        } ${isLandingPage && isScrolled
-                          ? 'text-foreground hover:text-primary hover:bg-primary/10'
-                          : isLandingPage && !isScrolled
-                            ? 'text-white hover:text-white/80 hover:bg-white/10'
-                            : 'text-foreground hover:text-primary hover:bg-primary/10'
+                      className={`font-medium transition-all duration-300 px-4 py-2 rounded-lg pointer-events-auto ${isLandingPage && isScrolled
+                        ? 'text-white hover:text-white/80 hover:bg-white/10'
+                        : isLandingPage && !isScrolled
+                          ? 'text-white hover:text-white/90 hover:bg-white/10'
+                          : 'text-foreground hover:text-primary hover:bg-accent'
                         }`}
                     >
                       {item.name}
@@ -137,7 +135,7 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
                 <Logo
                   size="md"
                   className={isLandingPage && !isScrolled ? 'text-white' : ''}
-                  hideText={isLandingPage && !isScrolled}
+                  hideText={false}
                 />
               </Link>
             </div>
@@ -148,12 +146,11 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg ${isLandingPage ? 'pointer-events-auto' : ''
-                    } ${isLandingPage && isScrolled
-                      ? 'text-muted-foreground hover:text-foreground hover:bg-accent'
-                      : isLandingPage && !isScrolled
-                        ? 'text-white/80 hover:text-white hover:bg-white/10'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                  className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg pointer-events-auto ${isLandingPage && isScrolled
+                    ? 'text-white/90 hover:text-white hover:bg-white/10'
+                    : isLandingPage && !isScrolled
+                      ? 'text-white/80 hover:text-white hover:bg-white/10'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-accent'
                     }`}
                 >
                   {item.name}
@@ -164,12 +161,11 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className={`p-2 rounded-lg transition-all duration-300 ${isLandingPage ? 'pointer-events-auto' : ''
-                    } ${isLandingPage && isScrolled
-                      ? 'hover:bg-accent'
-                      : isLandingPage && !isScrolled
-                        ? 'hover:bg-white/10 text-white'
-                        : 'hover:bg-accent'
+                  className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${isLandingPage && isScrolled
+                    ? 'hover:bg-white/10 text-white hover:text-white/80'
+                    : isLandingPage && !isScrolled
+                      ? 'hover:bg-white/10 text-white hover:text-white/90'
+                      : 'hover:bg-accent text-muted-foreground hover:text-foreground'
                     }`}
                 >
                   <Search className="h-4 w-4" />
@@ -178,12 +174,11 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className={`p-2 rounded-lg transition-all duration-300 ${isLandingPage ? 'pointer-events-auto' : ''
-                    } ${isLandingPage && isScrolled
-                      ? 'hover:bg-accent'
-                      : isLandingPage && !isScrolled
-                        ? 'hover:bg-white/10 text-white'
-                        : 'hover:bg-accent'
+                  className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${isLandingPage && isScrolled
+                    ? 'hover:bg-white/10 text-white hover:text-white/80'
+                    : isLandingPage && !isScrolled
+                      ? 'hover:bg-white/10 text-white hover:text-white/90'
+                      : 'hover:bg-accent text-muted-foreground hover:text-foreground'
                     }`}
                 >
                   <MessageCircle className="h-4 w-4" />
@@ -197,12 +192,11 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default' }) => {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`p-2 rounded-lg transition-all duration-300 ${isLandingPage ? 'pointer-events-auto' : ''
-                  } ${isLandingPage && isScrolled
-                    ? 'hover:bg-accent'
-                    : isLandingPage && !isScrolled
-                      ? 'hover:bg-white/10 text-white'
-                      : 'hover:bg-accent'
+                className={`p-2 rounded-lg transition-all duration-300 pointer-events-auto ${isLandingPage && isScrolled
+                  ? 'hover:bg-white/10 text-white hover:text-white/80'
+                  : isLandingPage && !isScrolled
+                    ? 'hover:bg-white/10 text-white hover:text-white/90'
+                    : 'hover:bg-accent text-muted-foreground hover:text-foreground'
                   }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >

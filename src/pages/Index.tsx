@@ -11,7 +11,7 @@ import LandingHeroOverlay from '@/components/landing-hero-overlay';
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <ScrollingBanner className="fixed top-0 left-0 right-0 z-[60]" />
+      <ScrollingBanner className="fixed top-0 left-0 right-0 z-[65]" />
       <Header variant="landing" />
       <LandingHeroOverlay />
       <main>
